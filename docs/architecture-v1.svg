@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="aDark" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f3640"/></marker>
+    <marker id="aRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker>
+    <marker id="aBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f6fc4"/></marker>
+    <marker id="aGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2e7d4f"/></marker>
+    <marker id="aGrey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker>
+  </defs>
+
+  <rect width="1000" height="650" fill="#ffffff"/>
+
+  <rect x="60" y="18" width="300" height="52" rx="26" fill="#eef1f5" stroke="#2f3640" stroke-width="1.5"/>
+  <text x="210" y="50" text-anchor="middle" font-size="17" font-weight="600" fill="#2f3640">Internet</text>
+
+  <rect x="20" y="120" width="960" height="50" rx="6" fill="#2f3640"/>
+  <text x="650" y="150" text-anchor="middle" font-size="15" fill="#ffffff"><tspan font-weight="700">OPNsense</tspan> · sole gateway between all networks · default deny</text>
+
+  <g font-size="13" fill="#1f2937">
+    <rect x="20" y="230" width="225" height="240" rx="8" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+    <text x="132" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#c0392b">DMZ</text>
+    <text x="132" y="280" text-anchor="middle" font-weight="700">rproxy</text>
+    <text x="132" y="298" text-anchor="middle" fill="#4b5563">Ubuntu · rootful Docker</text>
+    <text x="132" y="325" text-anchor="middle">NPMplus</text>
+    <text x="132" y="345" text-anchor="middle">CrowdSec agent + AppSec</text>
+    <text x="132" y="365" text-anchor="middle" font-weight="700" fill="#c0392b">CrowdSec LAPI</text>
+    <text x="132" y="385" text-anchor="middle">Alloy</text>
+    <text x="132" y="405" text-anchor="middle" font-weight="700" fill="#c0392b">NetBird server</text>
+    <text x="132" y="440" text-anchor="middle" font-size="12" fill="#c0392b">keys in the DMZ</text>
+
+    <rect x="260" y="230" width="225" height="240" rx="8" fill="#e8f1fc" stroke="#2f6fc4" stroke-width="1.5"/>
+    <text x="372" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#2f6fc4">Server network</text>
+    <text x="372" y="280" text-anchor="middle" font-weight="700">dockersrv</text>
+    <text x="372" y="298" text-anchor="middle" fill="#4b5563">Ubuntu · rootful Docker</text>
+    <text x="372" y="322" text-anchor="middle">Immich · CouchDB</text>
+    <text x="372" y="342" text-anchor="middle">SearXNG</text>
+    <text x="372" y="362" text-anchor="middle">Loki · Grafana</text>
+    <line x1="280" y1="382" x2="465" y2="382" stroke="#2f6fc4" stroke-dasharray="3 3"/>
+    <text x="372" y="405" text-anchor="middle" font-weight="700">LXC</text>
+    <text x="372" y="425" text-anchor="middle">Gitea · Paperless-ngx</text>
+
+    <rect x="500" y="230" width="225" height="240" rx="8" fill="#e7f5ec" stroke="#2e7d4f" stroke-width="1.5"/>
+    <text x="612" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#2e7d4f">Admin network</text>
+    <text x="612" y="280" text-anchor="middle" font-weight="700">dockeradm</text>
+    <text x="612" y="298" text-anchor="middle" fill="#4b5563">Ubuntu · rootful Docker</text>
+    <text x="612" y="322" text-anchor="middle">Vaultwarden</text>
+    <text x="612" y="342" text-anchor="middle">Portainer</text>
+    <line x1="520" y1="382" x2="705" y2="382" stroke="#2e7d4f" stroke-dasharray="3 3"/>
+    <text x="612" y="405" text-anchor="middle" font-weight="700">dedicated VMs</text>
+    <text x="612" y="425" text-anchor="middle">Wazuh · Checkmk</text>
+
+    <rect x="740" y="230" width="240" height="240" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
+    <text x="860" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#4b5563">LAN · VPN</text>
+    <text x="860" y="280" text-anchor="middle" font-weight="700">Clients</text>
+    <text x="860" y="305" text-anchor="middle">NAS · PBS</text>
+    <text x="860" y="330" text-anchor="middle">WireGuard</text>
+    <text x="860" y="350" text-anchor="middle">NetBird peers</text>
+  </g>
+
+  <line x1="110" y1="70" x2="110" y2="227" stroke="#2f3640" stroke-width="2.5" marker-end="url(#aDark)"/>
+  <text x="40" y="100" font-size="12.5" font-weight="600" fill="#2f3640" text-anchor="start">
+    <tspan x="120">inbound: 443 only</tspan>
+  </text>
+
+  <line x1="320" y1="117" x2="320" y2="74" stroke="#6b7280" stroke-width="2.5" stroke-dasharray="6 4" marker-end="url(#aGrey)"/>
+  <text x="330" y="100" font-size="12.5" font-weight="600" fill="#6b7280">outbound: update rule 80/443, enabled by hand</text>
+
+  <line x1="200" y1="173" x2="200" y2="227" stroke="#c0392b" stroke-width="2" marker-start="url(#aRed)" marker-end="url(#aRed)"/>
+  <text x="210" y="205" font-size="12.5" fill="#c0392b">firewall bouncer ⇄ LAPI</text>
+
+  <g stroke="#c0392b" stroke-width="2" fill="none">
+    <path d="M80,470 V505 H612"/>
+    <path d="M372,505 V475" marker-end="url(#aRed)"/>
+    <path d="M612,505 V475" marker-end="url(#aRed)"/>
+  </g>
+  <text x="640" y="509" font-size="12.5" fill="#c0392b">reverse proxy</text>
+
+  <g stroke="#2f6fc4" stroke-width="2" stroke-dasharray="6 4" fill="none">
+    <path d="M180,475 V540 H420 V475" marker-start="url(#aBlue)" marker-end="url(#aBlue)"/>
+  </g>
+  <text x="440" y="544" font-size="12.5" fill="#2f6fc4">logs to Loki · Grafana queries bans</text>
+
+  <g stroke="#6b7280" stroke-width="2" stroke-dasharray="2 4" fill="none">
+    <path d="M960,470 V575 H140"/>
+    <path d="M140,575 V475" marker-end="url(#aGrey)"/>
+  </g>
+  <text x="752" y="594" font-size="12.5" fill="#4b5563">internal access via proxy</text>
+
+  <text x="500" y="632" text-anchor="middle" font-size="12.5" fill="#4b5563">rproxy · dockersrv · dockeradm: Ubuntu · rootful Docker · all containers under one user · no SELinux</text>
+</svg>

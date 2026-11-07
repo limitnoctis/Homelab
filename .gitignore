@@ -1,0 +1,8 @@
+# Niemals committen
+.env
+*.env
+*.key
+*.pem
+*.tar
+*secret*
+authd.pass
