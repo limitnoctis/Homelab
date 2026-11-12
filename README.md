@@ -13,11 +13,11 @@ Each project shows what I built, why I made each decision, which trade-offs I ac
 | # | Project | What it shows | Status |
 |---|---|---|---|
 | 01 | [Segmented homelab with Ubuntu and Docker](projects/01-ubuntu-docker.md) | Network segmentation with OPNsense based on privilege, reverse proxy with WAF, CrowdSec bans enforced at the firewall, Wazuh and Checkmk on every host, self-hosted VPN for networks that block UDP | Superseded by 02 |
-| 02 | [Migration to AlmaLinux and rootless Podman](projects/02-migration-almalinux-podman.md) | Finding and fixing weaknesses in my own setup: rootless containers with SELinux, one Linux user per service, egress through a proxy with an allowlist, keys moved out of the DMZ, data migration between UID ranges without reassigning permissions | Done (Podman monitoring on two hosts pending) |
+| 02 | [Migration to AlmaLinux and rootless Podman](projects/02-migration-almalinux-podman.md) | Finding and fixing weaknesses in my own setup: rootless containers with SELinux, one Linux user per service, egress through a proxy with an allowlist, keys moved out of the DMZ, data migration between UID ranges without reassigning permissions | Done |
 | 03 | [Local AI with Strata](projects/03-local-ai-strata.md) | A language model running on my own GPU for anything involving sensitive data, with Open WebUI as interface, web search through my own SearXNG and a knowledge base synced automatically from my Obsidian homelab notes | In progress |
-| 04 | Per-host allowlists in Squid | Each server may only reach the domains it actually needs, instead of all servers sharing one allowlist | Planned |
+| 04 | [Per-host egress allowlists](projects/04-squid-per-host-allowlists.md) | Least privilege for outbound traffic: each server may only reach the domains it actually needs, instead of all servers sharing one allowlist | Done |
 | 05 | Notification server for bans | Self-hosted push notifications (ntfy) when CrowdSec bans an IP, so attacks are noticed right away instead of in the dashboard later | Planned |
-| 06 | ClamAV with Wazuh integration | Malware scanning on the hosts, with findings reported centrally in Wazuh | Planned |
+| 06 | [Malware detection with Wazuh, YARA and ClamAV](projects/06-malware-detection-wazuh.md) | Real-time YARA scans of new and changed files on every container host, nightly ClamAV scans where outside files are stored, all findings in Wazuh | In progress |
 
 **Short on time?** Read [Project 02](projects/02-migration-almalinux-podman.md). It shows how I review a running setup, weigh trade-offs and rebuild it step by step.
 
@@ -29,7 +29,7 @@ Each project shows what I built, why I made each decision, which trade-offs I ac
 |---|---|
 | Hypervisor | Proxmox VE, backups with PBS |
 | Firewall & routing | OPNsense, networks on separate bridges |
-| DNS | Unbound with blocklists, DNS over TLS |
+| DNS | Unbound with ad and tracker blocklists, DNSSEC, DNS over TLS to Quad9 |
 | Containers | AlmaLinux 10, rootless Podman, SELinux, one Linux user per service |
 | Reverse proxy | NPMplus with CrowdSec AppSec as WAF |
 | Intrusion prevention | CrowdSec, central LAPI in the admin network, bans enforced at the firewall |

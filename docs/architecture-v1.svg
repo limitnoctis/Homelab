@@ -45,8 +45,9 @@
     <text x="612" y="322" text-anchor="middle">Vaultwarden</text>
     <text x="612" y="342" text-anchor="middle">Portainer</text>
     <line x1="520" y1="382" x2="705" y2="382" stroke="#2e7d4f" stroke-dasharray="3 3"/>
-    <text x="612" y="405" text-anchor="middle" font-weight="700">dedicated VMs</text>
+    <text x="612" y="405" text-anchor="middle" font-weight="700">separate hosts</text>
     <text x="612" y="425" text-anchor="middle">Wazuh · Checkmk</text>
+    <text x="612" y="445" text-anchor="middle">Pi-hole (LXC)</text>
 
     <rect x="740" y="230" width="240" height="240" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
     <text x="860" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#4b5563">LAN · VPN</text>

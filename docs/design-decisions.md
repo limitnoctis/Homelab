@@ -4,6 +4,21 @@ Architecture decisions and their trade-offs, measured against the [principles](p
 
 ---
 
+## Pi-hole replaced by Unbound blocklists and DNS over TLS
+*Between Project 01 and 02*
+
+**Before:** Clients asked Unbound on OPNsense, Unbound forwarded to a Pi-hole for ad blocking, and Pi-hole asked public resolvers over plain DNS. My internet provider could read every query, and the chain had an extra host that could fail.
+
+**Decision:** Pi-hole removed. Unbound on OPNsense blocks ads, trackers and malicious domains itself with blocklists, validates answers with DNSSEC and forwards to Quad9 over DNS over TLS.
+
+- **DNS over TLS** encrypts the queries on their way out, so the provider no longer sees which domains are looked up.
+- **DNSSEC** doesn't hide anything, but proves that an answer really comes from the domain's owner and wasn't altered on the way.
+- **Quad9** additionally refuses to resolve known malicious domains.
+
+**Trade-off:** The queries are now visible to Quad9 instead of my provider. Quad9 states that it doesn't store client IP addresses, but some trust in the upstream resolver remains.
+
+---
+
 ## Egress through Squid instead of an update rule
 *Project 02*
 

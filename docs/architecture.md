@@ -47,9 +47,10 @@ All three container hosts are built the same way:
 
 **Monitoring and SIEM:**
 - Wazuh with agents on every host, including OPNsense, Proxmox and PBS
+- Malware detection: real-time file monitoring with YARA scans on all container hosts, a nightly ClamAV scan on `ctsrv`, findings reported to Wazuh
 - Checkmk for availability and resources, with Podman monitoring through the Podman API of each service user
 - Security dashboard in Grafana: Alloy ships the proxy logs, CrowdSec the alerts, and Grafana queries active bans directly from the LAPI
 
 **Remote access:** WireGuard on OPNsense for direct connections. NetBird in relay-only mode for networks that block UDP, with OPNsense as routing peer.
 
-**DNS:** Unbound on OPNsense with blocklists, upstream via DNS over TLS, local names as host overrides.
+**DNS and ad blocking:** Unbound on OPNsense resolves for every network. Blocklists filter ads, trackers and known malicious domains for all devices at once. Unbound validates answers with DNSSEC and sends queries upstream to Quad9 over DNS over TLS, so my internet provider can't read them. Local names are host overrides.

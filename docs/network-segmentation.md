@@ -30,6 +30,7 @@ Because firewalld only opens the container hosts' published ports to the reverse
 ## Egress
 
 - All server networks reach the internet only through Squid with a domain allowlist.
+- The allowlist is assigned per host: each server only reaches the domains it needs itself, see [Project 04](../projects/04-squid-per-host-allowlists.md).
 - Squid checks the requested hostname, for HTTPS via the CONNECT request. A firewall rule with an FQDN alias would only allow the IPs behind a name, and behind a CDN those are shared with many unrelated domains.
 - Package repositories (dnf, EPEL) point to fixed servers so that a few domains are enough.
 - Client devices browse directly, because an allowlist would make normal browsing impossible.

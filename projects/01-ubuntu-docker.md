@@ -13,6 +13,7 @@ A homelab for learning and self-hosting, built on the [principles](../docs/princ
 
 - **Hypervisor and firewall:** Proxmox VE, OPNsense as the only gateway, each network on its own bridge.
 - **Containers:** one Ubuntu VM with Docker per network.
+- **DNS and ad blocking:** Clients asked Unbound on OPNsense, which forwarded to a Pi-hole in the admin network for ad and tracker blocking. Pi-hole sent the queries on to public resolvers over plain, unencrypted DNS.
 - **Reverse proxy:** NPMplus in the DMZ with a wildcard certificate via DNS-01; internal services reachable from LAN and VPN only.
 - **Intrusion prevention:** CrowdSec with a central LAPI on the reverse proxy. The firewall bouncer on OPNsense enforces bans on all ports; AppSec works as a WAF inside NPMplus.
 - **Monitoring:** Wazuh with agents on every host, Checkmk, and a custom security dashboard with Loki and Grafana.
@@ -36,3 +37,4 @@ A review turned up weaknesses that network segmentation alone couldn't cover:
 4. **No mandatory access control.** No SELinux isolation for containers.
 5. **Egress by switch.** While the update rule was active, any domain was reachable. Forgetting to disable it would have left it open permanently.
 6. **False positives in Wazuh.** On Ubuntu 26.04, real findings got lost among kernel CVE reports.
+7. **DNS in plain text.** Every query left the network unencrypted, so my internet provider could see which domains each device looked up. And the DNS chain had one more host than necessary.

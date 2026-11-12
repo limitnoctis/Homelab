@@ -1,6 +1,6 @@
 # Project 02 – Migration to AlmaLinux and Rootless Podman
 
-**Status:** Done. Podman monitoring in Checkmk runs on `ctsrv`; `ctadm` and `ctdmz` are pending.
+**Status:** Done
 **Period:** October to November 2026
 
 ## Starting point
@@ -19,6 +19,7 @@ A review of [Project 01](01-ubuntu-docker.md#weaknesses-that-led-to-project-02) 
 | NetBird | in the DMZ | in the admin network |
 | CrowdSec LAPI | in the DMZ | in the admin network; DMZ runs agent + AppSec only |
 | Container monitoring | Portainer | Podman monitoring in Checkmk |
+| DNS | Unbound → Pi-hole → plain DNS upstream | Unbound with blocklists → DNS over TLS to Quad9 |
 
 ## Approach
 

@@ -18,7 +18,7 @@ How rules are built in OPNsense and on the hosts. Which connections between netw
 ## Outbound to the internet
 
 - Servers have no rule to the internet. Their only way out is the egress proxy in its own network.
-- The egress proxy itself may only reach web ports on public addresses, never private networks. What a service may reach outside is controlled by the proxy's domain allowlist.
+- The egress proxy itself may only reach web ports on public addresses, never private networks. What a server may reach outside is controlled by the proxy's domain allowlist for that specific host.
 - Client devices in LAN and VPN that need to browse are grouped and may reach the internet directly. An allowlist would make normal browsing impossible there.
 - Servers in the LAN, such as the NAS, use the egress proxy for updates.
 
